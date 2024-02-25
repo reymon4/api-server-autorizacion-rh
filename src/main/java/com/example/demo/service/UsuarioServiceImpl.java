@@ -12,17 +12,17 @@ import com.example.demo.repository.modelo.Usuario;
 import static java.util.Collections.emptyList;
 
 @Service
-public class UsuarioServiceImpl implements UserDetailsService {
+public class UsuarioServiceImpl implements UserDetailsService{
 
 	@Autowired
 	private IUsuarioRepository iUsuarioRepository;
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		// TODO Auto-generated method stub
-		Usuario usuario = this.iUsuarioRepository.selectForName(username);
-		//user, pass, rol
-		return new User(usuario.getName(), usuario.getPassword(), emptyList());
+		Usuario usuario = this.iUsuarioRepository.consultarPorNombre(username);
+		System.out.println(usuario.getNombre());
+		System.out.println(usuario.getPassword());
+		return new User(usuario.getNombre(), usuario.getPassword(), emptyList());
 	}
-
+	
 }

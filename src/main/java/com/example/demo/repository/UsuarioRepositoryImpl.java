@@ -17,12 +17,11 @@ public class UsuarioRepositoryImpl implements IUsuarioRepository {
 	private EntityManager entityManager;
 
 	@Override
-	public Usuario selectForName(String name) {
-		// TODO Auto-generated method stub
-		TypedQuery<Usuario> query = this.entityManager.createQuery("Select u From Usuario u Where u.name=:name",
+	public Usuario consultarPorNombre(String nombre) {
+		TypedQuery<Usuario> m = this.entityManager.createQuery("SELECT u FROM Usuario u WHERE u.nombre= :nombre",
 				Usuario.class);
-		query.setParameter("name", name);
-		return query.getSingleResult();
+		m.setParameter("nombre", nombre);
+		return m.getSingleResult();
 	}
 
 }
