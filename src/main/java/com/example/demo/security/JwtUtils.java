@@ -20,8 +20,8 @@ public class JwtUtils {
 
 	public String buildTokenJwt(String nombre) {
 		return Jwts.builder().setSubject(nombre).setSubject(nombre).setIssuedAt(new Date())
-				.setExpiration(new Date(System.currentTimeMillis()+100000000))
-				.signWith(SignatureAlgorithm.HS512, "kalsdasjdnaskbdasjdksbhadbsakjdhkjashdahskdbaskj3234243kjbajkdsbfk4n32j4k324jb324badssadj").compact();
+				.setExpiration(new Date(System.currentTimeMillis()+jwtExpirationMs))
+				.signWith(SignatureAlgorithm.HS512, "kalsdasjdnaskbdasjdksbhadbsakjdhkjdhdfgfgfgfggfgashdahskdbaskj3234243kjbajkdsbfk4n32j4k324jb324badssadj").compact();
 	}
 
 }
